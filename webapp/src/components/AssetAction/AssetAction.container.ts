@@ -7,5 +7,4 @@ import { MapDispatchProps } from './AssetAction.types'
 const mapDispatch = (dispatch: Dispatch): MapDispatchProps => ({
   onBack: (location?: string) => dispatch(goBack(location))
 })
-
 export default connect(null, mapDispatch)(AssetPage)
