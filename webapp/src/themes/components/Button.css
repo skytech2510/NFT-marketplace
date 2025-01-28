@@ -10,3 +10,7 @@
 .ui.button + .ui.button {
   margin-left: 16px;
 }
+
+.ui.button + .ui.button::before {
+  margin: 0px;
+}

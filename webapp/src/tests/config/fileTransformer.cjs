@@ -37,7 +37,7 @@ module.exports = {
       };`
       }
     }
-
+    if(!assetFilename) return;
     return { code: `module.exports = ${assetFilename};` }
   }
 }
