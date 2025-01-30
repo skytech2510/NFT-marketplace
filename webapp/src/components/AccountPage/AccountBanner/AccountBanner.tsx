@@ -28,12 +28,9 @@ const AccountBanner = ({ address, store, isLoading, onBack, onFetchStore }: Prop
     onFetchStore(address)
   }, [onFetchStore, address])
 
-  const renderLink = (type: LinkType) =>{
-    if(store?.[type])
-      getIsValidLink(type, store[type]) && <div className={classNames('icon', type)} onClick={() => setOpenExternalLinkModal(store[type])} />
-      else return
-  }
-    
+  const renderLink = (type: LinkType) =>
+    store?.[type] &&
+    getIsValidLink(type, store[type]) && <div className={classNames('icon', type)} onClick={() => setOpenExternalLinkModal(store[type])} />
 
   return (
     <>
