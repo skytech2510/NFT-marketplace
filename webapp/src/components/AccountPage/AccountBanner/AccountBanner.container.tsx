@@ -12,7 +12,7 @@ import { getAddress as getAddressFromWallet } from '../../../modules/wallet/sele
 import AccountBanner from './AccountBanner'
 import { MapStateProps, MapDispatchProps } from './AccountBanner.types'
 
-const mapState = (state: RootState): MapStateProps => {
+const mapToState = (state: RootState): MapStateProps => {
   const viewAsGuest = getViewAsGuest(state)
   const address = getAddressFromUrl(state) || getAddressFromWallet(state)
   const isLoading = isLoadingType(getStoreLoading(state), FETCH_STORE_REQUEST)
@@ -29,11 +29,11 @@ const mapState = (state: RootState): MapStateProps => {
   }
 }
 
-const mapDispatch = (dispatch: Dispatch): MapDispatchProps => {
+const mapToDispatch = (dispatch: Dispatch): MapDispatchProps => {
   return {
     onBack: () => dispatch(goBack()),
     onFetchStore: (address: string) => dispatch(fetchStoreRequest(address))
   }
 }
 
-export default connect(mapState, mapDispatch)(AccountBanner)
+export default connect(mapToState, mapToDispatch)(AccountBanner)
